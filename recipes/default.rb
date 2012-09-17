@@ -39,7 +39,7 @@ case node[:ganglia][:unicast]
 when true
   host = search(:node, "role:#{node['ganglia']['server_role']} AND chef_environment:#{node.chef_environment}").map {|node| node.ipaddress}.first
   Chef::Log.info("the node's ipaddress is: #{node.ipaddress}")
-  Chef::Log.info("the host is: #{host.to_s}")
+  Chef::Log.info("the host is: #{host}")
   if host.empty? 
      host = "127.0.0.1"
   end
