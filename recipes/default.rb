@@ -41,7 +41,7 @@ when true
   Chef::Log.info("the node's ipaddress is: #{node.ipaddress}")
   Chef::Log.info("the host is: #{host}")
   if host.empty? 
-     host = "127.0.0.1"
+     host = node.ipaddress
   end
   template "/etc/ganglia/gmond.conf" do
     source "gmond_unicast.conf.erb"
