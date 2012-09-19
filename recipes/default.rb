@@ -38,10 +38,8 @@ directory "/etc/ganglia"
 case node[:ganglia][:unicast]
 when true
   host = search(:node, "role:#{node['ganglia']['server_role']} AND chef_environment:#{node.chef_environment}").map {|node| node.ipaddress}
-  Chef::Log.info("the node's ipaddress is: #{node.ipaddress}")
-  Chef::Log.info("the host is: #{host}")
   if host.empty? 
-     host = node.ipaddress
+     host = '127.0.0.1'
   else
      host = host.first
   end
