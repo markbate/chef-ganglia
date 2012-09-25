@@ -3,8 +3,8 @@ package "ganglia-webfrontend"
 
 # create a .htpassword file for basic auth
 htpasswd "/usr/share/ganglia-webfrontend/.htpasswd" do
-  user "foo"
-  password "bar"
+  user node[:ganglia][:user]
+  password node[:ganglia][:password]
 end
 
 # create the config from template
