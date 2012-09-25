@@ -9,6 +9,9 @@ version          "0.1.1"
   supports os
 end
 
+
 recommends "graphite"
 suggests "iptables"
 
+depends "apache2"
+depends "htpasswd"
